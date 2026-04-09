@@ -1,0 +1,458 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>WEED O'CLOCK | Luxury in Every Hour</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,200..800;1,6..72,200..800&amp;family=Manrope:wght@200..800&amp;family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "inverse-surface": "#e5e2e1",
+                    "inverse-primary": "#735c00",
+                    "on-primary-container": "#554300",
+                    "on-error": "#690005",
+                    "on-background": "#e5e2e1",
+                    "surface-container-high": "#2a2a2a",
+                    "inverse-on-surface": "#313030",
+                    "on-primary-fixed-variant": "#574500",
+                    "tertiary-fixed": "#bbeed3",
+                    "on-primary-fixed": "#241a00",
+                    "on-surface-variant": "#d0c5af",
+                    "on-surface": "#e5e2e1",
+                    "primary": "#f2ca50",
+                    "tertiary-fixed-dim": "#a0d1b8",
+                    "tertiary": "#a8dac0",
+                    "surface-dim": "#131313",
+                    "on-tertiary": "#033826",
+                    "primary-container": "#d4af37",
+                    "secondary-container": "#474746",
+                    "error": "#ffb4ab",
+                    "surface-tint": "#e9c349",
+                    "surface-variant": "#353534",
+                    "secondary": "#c8c6c5",
+                    "surface-container-highest": "#353534",
+                    "tertiary-container": "#8dbea5",
+                    "secondary-fixed": "#e5e2e1",
+                    "surface-container": "#201f1f",
+                    "on-error-container": "#ffdad6",
+                    "on-secondary": "#313030",
+                    "outline": "#99907c",
+                    "primary-fixed": "#ffe088",
+                    "on-secondary-fixed": "#1b1b1b",
+                    "on-tertiary-fixed-variant": "#204f3c",
+                    "secondary-fixed-dim": "#c8c6c5",
+                    "surface-container-lowest": "#0e0e0e",
+                    "error-container": "#93000a",
+                    "outline-variant": "#4d4635",
+                    "surface": "#131313",
+                    "surface-bright": "#3a3939",
+                    "on-tertiary-container": "#1e4e3a",
+                    "background": "#131313",
+                    "surface-container-low": "#1c1b1b",
+                    "on-tertiary-fixed": "#002114",
+                    "on-secondary-fixed-variant": "#474746",
+                    "on-secondary-container": "#b7b5b4",
+                    "on-primary": "#3c2f00",
+                    "primary-fixed-dim": "#e9c349"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0px",
+                    "lg": "0px",
+                    "xl": "0px",
+                    "full": "9999px"
+            },
+            "fontFamily": {
+                    "headline": ["Newsreader", "serif"],
+                    "body": ["Manrope", "sans-serif"],
+                    "label": ["Manrope", "sans-serif"]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        body { background-color: #131313; color: #e5e2e1; font-family: 'Manrope', sans-serif; overflow-x: hidden; }
+        .font-serif { font-family: 'Newsreader', serif; }
+        .material-symbols-outlined { font-variation-settings: 'FILL' 0, 'wght' 200, 'GRAD' 0, 'opsz' 24; }
+        .glass-panel { background: rgba(19, 19, 19, 0.7); backdrop-filter: blur(20px); border-bottom: 1px solid rgba(77, 70, 53, 0.15); }
+        .haze-overlay { background: radial-gradient(circle at 50% 50%, rgba(168, 218, 192, 0.05) 0%, transparent 70%); pointer-events: none; }
+        .gold-gradient-bg { background: linear-gradient(45deg, #f2ca50, #d4af37); }
+        .glow-halo { box-shadow: 0px 0px 60px rgba(242, 202, 80, 0.05); }
+        .text-glow { text-shadow: 0 0 20px rgba(242, 202, 80, 0.3); }
+        .diagonal-reveal { clip-path: polygon(0 0, 100% 0, 100% 100%, 0 95%); }
+        .no-scrollbar::-webkit-scrollbar { display: none; }
+
+        /* Animated Hero Elements */
+        @keyframes drift {
+            0% { transform: translate(0, 0) scale(1); }
+            50% { transform: translate(20px, 15px) scale(1.1); }
+            100% { transform: translate(0, 0) scale(1); }
+        }
+        @keyframes sweep {
+            0% { transform: translateX(-100%) skewX(-15deg); opacity: 0; }
+            50% { opacity: 0.15; }
+            100% { transform: translateX(200%) skewX(-15deg); opacity: 0; }
+        }
+        @keyframes float-mote {
+            0% { transform: translateY(0) translateX(0); opacity: 0; }
+            20% { opacity: 0.6; }
+            80% { opacity: 0.6; }
+            100% { transform: translateY(-100px) translateX(20px); opacity: 0; }
+        }
+        .smoke-layer {
+            background: url('https://www.transparenttextures.com/patterns/carbon-fibre.png'), radial-gradient(circle at 50% 50%, rgba(255,255,255,0.03) 0%, transparent 70%);
+            filter: blur(40px);
+            animation: drift 25s infinite ease-in-out;
+        }
+        .light-sweep {
+            background: linear-gradient(90deg, transparent, rgba(242, 202, 80, 0.2), transparent);
+            animation: sweep 12s infinite linear;
+        }
+        .mote {
+            position: absolute;
+            width: 2px;
+            height: 2px;
+            background: #f2ca50;
+            border-radius: 50%;
+            pointer-events: none;
+            filter: blur(1px);
+        }
+        .parallax-layer {
+            transition: transform 0.1s ease-out;
+            will-change: transform;
+        }
+    </style>
+</head>
+<body class="selection:bg-primary selection:text-on-primary">
+<!-- Age Gate Modal -->
+<div class="fixed inset-0 z-[100] flex items-center justify-center bg-surface-container-lowest transition-opacity duration-1000" id="age-gate">
+<div class="relative z-10 text-center px-6 max-w-lg">
+<h1 class="font-headline italic text-5xl md:text-7xl text-primary mb-8 tracking-tighter">WEED O'CLOCK</h1>
+<p class="font-body uppercase tracking-[0.3em] text-[10px] text-outline mb-12">An Alchemical Ritual. Are you of legal age?</p>
+<div class="flex flex-col md:flex-row gap-4 justify-center">
+<button class="gold-gradient-bg text-on-primary px-12 py-4 font-label uppercase text-xs tracking-widest hover:opacity-90 transition-all duration-500" onclick="document.getElementById('age-gate').style.opacity='0'; setTimeout(()=&gt;document.getElementById('age-gate').remove(), 1000)">I AM OVER 20</button>
+<button class="border border-outline-variant text-outline px-12 py-4 font-label uppercase text-xs tracking-widest hover:text-primary hover:border-primary transition-all duration-500">EXIT SITE</button>
+</div>
+<p class="mt-8 text-[10px] text-outline-variant font-body">PLEASE ENJOY RESPONSIBLY. ACCESS RESTRICTED TO LEGAL ADULTS IN THAILAND.</p>
+</div>
+<div class="absolute inset-0 haze-overlay opacity-30"></div>
+</div>
+<!-- Haze Overlay Global -->
+<div class="fixed inset-0 haze-overlay z-0 pointer-events-none"></div>
+<!-- TopNavBar -->
+<nav class="fixed top-0 w-full z-50 rounded-none bg-transparent backdrop-blur-xl dark:bg-[#131313]/80 shadow-[0px_20px_50px_rgba(242,202,80,0.05)]">
+<div class="flex justify-between items-center w-full px-12 py-6">
+<div class="text-2xl font-headline italic tracking-tighter text-[#f2ca50]">WEED O'CLOCK</div>
+<div class="hidden md:flex gap-12">
+<a class="font-serif italic tracking-wide uppercase text-xs text-[#f2ca50] border-b border-[#f2ca50] pb-1" href="#">The Essence</a>
+<a class="font-serif italic tracking-wide uppercase text-xs text-[#99907c] hover:text-[#f2ca50] transition-colors duration-500" href="#">Collection</a>
+<a class="font-serif italic tracking-wide uppercase text-xs text-[#99907c] hover:text-[#f2ca50] transition-colors duration-500" href="#">Rituals</a>
+<a class="font-serif italic tracking-wide uppercase text-xs text-[#99907c] hover:text-[#f2ca50] transition-colors duration-500" href="#">Concierge</a>
+</div>
+<div class="flex items-center gap-6 text-[#f2ca50]">
+<button class="hover:opacity-80 transition-opacity duration-500">
+<span class="material-symbols-outlined" data-icon="shopping_bag">shopping_bag</span>
+</button>
+<button class="hover:opacity-80 transition-opacity duration-500">
+<span class="material-symbols-outlined" data-icon="person">person</span>
+</button>
+</div>
+</div>
+</nav>
+<!-- Hero Section -->
+<section class="relative h-screen w-full flex items-center justify-center overflow-hidden bg-black" id="hero">
+<!-- Parallax Layers -->
+<div class="absolute inset-0 z-0 overflow-hidden">
+<!-- Layer 1: Obsidian Base & Gradient -->
+<div class="absolute inset-0 bg-[#0e0e0e] z-0"></div>
+<div class="absolute inset-0 bg-gradient-to-b from-transparent via-[#131313]/60 to-[#0e0e0e] z-10"></div>
+<!-- Layer 2: Main Background Image (Parallax) -->
+<div class="absolute inset-0 z-20 opacity-30 parallax-layer" data-speed="0.2">
+<img alt="Premium indoor growth" class="w-full h-full object-cover scale-110" data-alt="Cinematic macro shot of premium cannabis flower with crystalline trichomes under dramatic amber and emerald laboratory lighting" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBtufmDI90wQbMPDopVKOe9PTEzAcfoZGVtPo36VVLmp6s7w9cdm-p0IkoU9uNHsv-_qLqWhK2pmUunSFH3eR9dpQ2SLuo1SJ7k3Bv5HMBgZVVpFI8KgpZRq4DAP8n_3LJQWzXsN4dtjaHpPq67JcaMlCxRv3F_OtKvR83mibVVnOPxuSqEpBLliR-2pLXevwqWp_lfhmNAg8gGuiRm5ZftjE0IS8P5hzhX_l52a5pKqkvlegswhau6aoI7FHdhBOcR4QWhcuuTEPXR"/>
+</div>
+<!-- Layer 3: Moving Smoke/Mist (Hidden on mobile for performance) -->
+<div class="absolute inset-0 z-30 opacity-40 hidden md:block smoke-layer"></div>
+<!-- Layer 4: Light Sweep -->
+<div class="absolute inset-0 z-40 light-sweep opacity-10 pointer-events-none"></div>
+<!-- Layer 5: Gold Dust Particles (Dynamic) -->
+<div class="absolute inset-0 z-50 pointer-events-none" id="mote-container"></div>
+</div>
+<div class="relative z-50 text-center px-4 parallax-layer" data-speed="0.1">
+<div class="overflow-hidden mb-2">
+<span class="block font-body uppercase tracking-[0.5em] text-[10px] text-primary animate-pulse">PREMIUM INDOOR &amp; OUTDOOR LIFESTYLE</span>
+</div>
+<h2 class="font-headline italic text-7xl md:text-[10rem] text-primary leading-tight tracking-tighter mb-4 text-glow">
+            Luxury in Every Hour
+        </h2>
+<div class="flex flex-col md:flex-row justify-center gap-6 md:gap-8 mt-12">
+<button class="gold-gradient-bg text-on-primary px-10 py-4 font-label uppercase text-xs tracking-widest hover:scale-105 transition-transform duration-500">EXPLORE RITUALS</button>
+<button class="border border-outline-variant text-primary px-10 py-4 font-label uppercase text-xs tracking-widest hover:border-primary transition-all duration-500 backdrop-blur-sm">VIEW COLLECTION</button>
+</div>
+</div>
+<div class="absolute bottom-0 left-0 w-full h-1/4 bg-gradient-to-t from-[#131313] to-transparent z-[55] pointer-events-none"></div>
+</section>
+<!-- Featured Collection (Bento Grid) -->
+<section class="py-32 px-6 md:px-12 bg-surface">
+<div class="mb-20 text-center md:text-left flex flex-col md:flex-row md:items-end justify-between">
+<div>
+<span class="font-body uppercase tracking-[0.3em] text-[10px] text-tertiary">Curated Alchemy</span>
+<h3 class="font-headline italic text-5xl md:text-6xl text-primary mt-2">The Golden Collection</h3>
+</div>
+<a class="font-label uppercase text-[10px] tracking-[0.2em] text-outline hover:text-primary mt-8 transition-all" href="#">Discover All Varieties →</a>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-12 gap-6 h-auto md:h-[800px]">
+<!-- Card 1 -->
+<div class="md:col-span-8 group relative overflow-hidden bg-surface-container-low glow-halo border border-outline-variant/10">
+<img alt="Top shelf product" class="absolute inset-0 w-full h-full object-cover transition-transform duration-1000 group-hover:scale-110 opacity-60" data-alt="Artistic close-up of a high-end gold-plated grinder and premium cannabis flower on a dark reflective marble surface" src="https://lh3.googleusercontent.com/aida-public/AB6AXuApVNm02HkVjuuGbgXyPB4UY_oOJwBio-HsvwdxOebHDxHnJfIJhqVA6dEwQGDN67gAMbYYgw6aq4vjk1hklMlG5I3co9oCqS7iZan_4x3wLVC4whUxF7kNmkEN_6_rl2Gz_F8roaZfpCGCyO06AdT6ZFo13eOebALjZRlSVMGaA3JG6LIwlHWy9ETdmd3j09M6MoEdZp05WbolZnYqeLmYtgx52QgzOkyH7yyGyL4UyiOVz4GuBG37Pbpkb3HzKj8ux0ZkYqa4soYR"/>
+<div class="absolute inset-0 bg-gradient-to-t from-surface-container-lowest via-transparent to-transparent"></div>
+<div class="absolute bottom-0 left-0 p-12 w-full">
+<div class="flex gap-2 mb-4">
+<span class="px-3 py-1 bg-tertiary-container/20 text-tertiary text-[9px] uppercase tracking-widest font-body backdrop-blur-md">Earthy</span>
+<span class="px-3 py-1 bg-primary/20 text-primary text-[9px] uppercase tracking-widest font-body backdrop-blur-md">Premium Indoor</span>
+</div>
+<h4 class="font-headline italic text-4xl text-on-surface">Royal Orchid Kush</h4>
+<p class="font-body text-sm text-outline-variant mt-4 max-w-md">Our signature private reserve. Cultivated in the heart of Bangkok with obsessive attention to metabolic purity.</p>
+</div>
+</div>
+<!-- Card 2 -->
+<div class="md:col-span-4 group relative overflow-hidden bg-surface-container-lowest border border-outline-variant/10">
+<img alt="Outdoor flower" class="absolute inset-0 w-full h-full object-cover transition-transform duration-1000 group-hover:scale-110 opacity-50" data-alt="Sun-drenched cannabis leaves in a lush outdoor garden in Thailand with soft golden hour lighting and depth of field" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCFP-1Rd3pC8s7An0lDCX6JEFI_e3DdZBWYLpbP8Zl1o_EhIJxliqq46qQuO9A6kqoo4JgaTq4xXWcqxSPfsj2fBF70jrin38n7tTC56PqAMeAiTTv-6HMBt8o1EymN2OYMUltZaxuHWsozuXIlr4LAcTGNXCtVodG4bdJPyUtphORRT62-_NKjrYz1aBP8tc0sih0acwWZXHsuiY0Qu9EU5b-3Cgyf3u5yGDjm3S8Cfxv3p1yi7P4UFEN61iM6qJyKg_C9x1JniJdX"/>
+<div class="absolute inset-0 bg-gradient-to-t from-surface-container-lowest via-transparent to-transparent"></div>
+<div class="absolute bottom-0 left-0 p-8">
+<span class="px-3 py-1 bg-primary/20 text-primary text-[9px] uppercase tracking-widest font-body backdrop-blur-md mb-4 inline-block">Tropical High</span>
+<h4 class="font-headline italic text-3xl text-on-surface">Emerald Thai Haze</h4>
+<p class="font-body text-xs text-outline-variant mt-2">Sun-grown excellence from the hills.</p>
+</div>
+</div>
+<!-- Card 3 -->
+<div class="md:col-span-4 group relative overflow-hidden bg-surface-container-lowest border border-outline-variant/10">
+<img alt="Pre-roll luxury" class="absolute inset-0 w-full h-full object-cover transition-transform duration-1000 group-hover:scale-110 opacity-50" data-alt="Elegant glass tube containing a perfectly rolled cannabis joint with a gold-leaf tip, resting on dark silk fabric" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAT0anUz9mFzxMgUkHrcWsWD6eqrqgMthRHspMehhd3N01tsRJyGV2pHeNahxZlUp5S28XRyJXdCZXfiWtIKda7678xDZT0E3hNPX2YtzabT-pFszk-7i1oHBWXbKcvCx0gRXRmJS7J_MUXkb-WWn3dERysdoqYOxUrrSm4kdc4gt0wcHT61cMkz-KlkS9XduCtljURdf3nyHjpDQ0nAfgk43g89mvJ6MOv-tHNp7q4xv1LH8Bp04konW1GhHmecdhgBw0EO4kJ1Jjb"/>
+<div class="absolute inset-0 bg-gradient-to-t from-surface-container-lowest via-transparent to-transparent"></div>
+<div class="absolute bottom-0 left-0 p-8">
+<h4 class="font-headline italic text-3xl text-on-surface">The Ritual Set</h4>
+<button class="mt-4 font-label uppercase text-[10px] tracking-widest text-primary border-b border-primary/30 pb-1">Shop Now</button>
+</div>
+</div>
+<!-- Card 4 -->
+<div class="md:col-span-8 group relative overflow-hidden bg-surface-container-low border border-outline-variant/10">
+<div class="absolute inset-0 bg-[#0e0e0e]"></div>
+<div class="absolute right-0 top-0 w-1/2 h-full opacity-30">
+<img alt="Accessories" class="w-full h-full object-cover" data-alt="Minimalist luxury cannabis accessories, gold scales and glass jars on a matte black podium with sharp shadows" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCpgkc27LTEYlx0rB-IySBaFCp5QcaFvEktNUvttrPKrALKGNt_tBKEDgP66hXwOQgvRFJVKtLkbPEoo6s6BJEFA6fN41EMbo5eBVSPXm9aXRuA98rBfWOLF37rpxRRrVV_F57EZDy0O9QfyRplT-prNBHtfOaS2cqVfH19NmwmPiqJa7fv9IiTd7mhdOpSow43ohGaFe_GoLPmjY2cQfQfRhRYxc92awdPLKGEFqy-mfgwvMPTZzh2ExojVpakawYW74d29HCFS_Lk"/>
+</div>
+<div class="relative h-full flex flex-col justify-center p-12">
+<h4 class="font-headline italic text-4xl text-primary mb-4">Concierge Service</h4>
+<p class="font-body text-sm text-outline-variant max-w-sm mb-8 leading-relaxed">Personalized delivery and selection for the most discerning clients in Bangkok's high-end residential areas.</p>
+<a class="font-label uppercase text-xs tracking-widest text-on-surface border border-outline-variant w-fit px-8 py-3 hover:border-primary transition-all" href="#">Inquire Private Access</a>
+</div>
+</div>
+</div>
+</section>
+<!-- Signature Experience (Editorial) -->
+<section class="py-32 bg-surface-container-lowest relative overflow-hidden">
+<div class="max-w-7xl mx-auto px-6 md:px-12 grid grid-cols-1 md:grid-cols-2 items-center gap-20">
+<div class="relative">
+<div class="aspect-[4/5] bg-surface relative overflow-hidden">
+<img alt="Bangkok Cityscape" class="w-full h-full object-cover opacity-80" data-alt="Cinematic night view of Bangkok skyline with glowing lights and purple-gold atmospheric haze, captured from a high-end lounge" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCdGf7x5F-Omd6SKECt7H0ewBb3vOp5k2ZkUAAMzkYamYrXdZU4qdt16iJ-y4aZ8aPElurwnKu6y3ABQg0A5MHXh19gcMGBxchI6E1kT_5d8ouFmSnbL_VKOQ7W2h69Aiz5oISsjULP-AwKkFOkhwsiMWiYEIqPJVOux51gHb0_6e3tyWtoJazS-YMkWF9oSZR8UDTFDK6Yb5tFmK7QcxZYDQDbiJxXVtwQ_pndJlhOOv2DHmx3NQfKFPZiJIFiV0W6Bze8iDCs5oNV"/>
+</div>
+<div class="absolute -bottom-10 -right-10 w-64 h-64 border border-primary/20 hidden md:block"></div>
+<div class="absolute -top-10 -left-10 text-primary opacity-20 hidden md:block">
+<span class="font-headline italic text-[200px] leading-none">BKK</span>
+</div>
+</div>
+<div class="space-y-8">
+<span class="font-body uppercase tracking-[0.4em] text-[10px] text-tertiary">Our Origin Story</span>
+<h3 class="font-headline italic text-6xl md:text-7xl text-primary tracking-tighter leading-none">The Alchemist of Sukhumvit</h3>
+<p class="font-body text-outline leading-relaxed text-lg italic">
+                    "WEED O'CLOCK was born from a singular vision: to treat cannabis not as a commodity, but as a fine vintage. In the vibrant pulse of Bangkok, we've curated a space where time slows down, and every aromatic note tells a story of craftsmanship."
+                </p>
+<div class="pt-8 flex items-center gap-6">
+<div class="h-[1px] w-12 bg-primary"></div>
+<span class="font-label uppercase text-xs tracking-[0.3em] text-on-surface">The Founder's Philosophy</span>
+</div>
+</div>
+</div>
+</section>
+<!-- Why Choose Us -->
+<section class="py-32 bg-surface border-y border-outline-variant/10">
+<div class="max-w-7xl mx-auto px-6 md:px-12">
+<div class="grid grid-cols-1 md:grid-cols-3 gap-16">
+<div class="text-center md:text-left space-y-6">
+<span class="material-symbols-outlined text-4xl text-primary" data-icon="auto_awesome" style="font-variation-settings: 'FILL' 1;">auto_awesome</span>
+<h4 class="font-headline italic text-3xl text-on-surface">Curated Quality</h4>
+<p class="font-body text-sm text-outline-variant leading-relaxed">Every bud is hand-selected and lab-tested to meet the rigorous "Midnight Standard" of potency and terpene profile.</p>
+</div>
+<div class="text-center md:text-left space-y-6">
+<span class="material-symbols-outlined text-4xl text-primary" data-icon="shutter_speed" style="font-variation-settings: 'FILL' 1;">shutter_speed</span>
+<h4 class="font-headline italic text-3xl text-on-surface">The Perfect Cure</h4>
+<p class="font-body text-sm text-outline-variant leading-relaxed">We respect the timeline. Our slow-curing process ensures a smooth, refined ritual that respects the plant's true essence.</p>
+</div>
+<div class="text-center md:text-left space-y-6">
+<span class="material-symbols-outlined text-4xl text-primary" data-icon="verified_user" style="font-variation-settings: 'FILL' 1;">verified_user</span>
+<h4 class="font-headline italic text-3xl text-on-surface">Exclusive Access</h4>
+<p class="font-body text-sm text-outline-variant leading-relaxed">As a member, you gain access to limited-run "Drops" and private events hosted across Bangkok's most iconic venues.</p>
+</div>
+</div>
+</div>
+</section>
+<!-- Editorial Gallery -->
+<section class="py-24 bg-surface-container-lowest overflow-hidden">
+<div class="flex flex-nowrap gap-4 animate-scroll no-scrollbar overflow-x-auto px-4">
+<div class="min-w-[300px] md:min-w-[450px] aspect-[3/4] bg-surface relative group overflow-hidden">
+<img alt="Gallery Image 1" class="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-105" data-alt="Close-up artistic fashion shot of a hand with gold rings holding an elegant smoking device, moody cinematic lighting" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBK0vlVLNVD-v9MMZdD9SXEAluUi0U4kEb9PCAfpw6ZhNgQXQSpS1QkVOLE2OJPPzBAN4l6JKXRVarITh1Q-SeYzrqJRVBer1jDEWdVvgDHpCCTS-jz1xRZ8of1D4wjLcGnynzKAoBI6V34tZGIYoxlg4ptboV32wLfM_1W7tF2L7iH2nl82TSoV0zpjbq3yqvWbN2RYlaY2S8K0xmuLyYohz8CI3qBm3dewAezpPWb5CtLDA6hpx5q1jEmgx2fn8NeADygQnsFMzPQ"/>
+</div>
+<div class="min-w-[300px] md:min-w-[450px] aspect-[3/4] bg-surface relative group overflow-hidden">
+<img alt="Gallery Image 2" class="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-105" data-alt="Macro photography of cannabis crystals shimmering like diamonds under a high-contrast warm spotlight on dark background" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAX2tAQzLEMkMXwWy7NLNo0F9XOc6ws7evTqT57H2StYxljd8GN-uAFCfqvVz2p6GvfXQQgKMyQSxN84aAoPxayH4VriZBxA-4H3pX0-RXL6xLRk76ZY6pN59h8OWjNpE4opr0EzjEAxXW-r9ECFroo22zmZfCRHFCM6PYitQyi31Qr-0Sh0rz3Coh2futtxh3eJnTm8oKdDlKJT5AxAH5KGuT2HHtehJSWEu-Y6NXLttmVq0BpKsJp09YN_8VNSKvC93R3DdIo6IUD"/>
+</div>
+<div class="min-w-[300px] md:min-w-[450px] aspect-[3/4] bg-surface relative group overflow-hidden">
+<img alt="Gallery Image 3" class="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-105" data-alt="Stacks of old luxury books next to an elegant glass jar and dried botanical elements in a dimly lit library setting" src="https://lh3.googleusercontent.com/aida-public/AB6AXuC0F3Sg7ZA21hqWXFeLf811CN-iBlDmiFtYeHFwwjMCRwn5ogrSlVo3cb-oZHH9wTn3T4PXLhhJVMpVOvvt52fehxY8JbvceqYj1G9Jvj0Lmdh_DJXgRVo1lmHbcFyN4FJVILVO7hsrYyFYa2LMhzUaFN7GgyNd9b_kTI6M0XwyDF2zrVeMarjjDBtYLksNwhcWlTdUlJlb1-b59-woWZrpkjntp-bS3pV7zOKsXmrhbqTk93q68GdGe_OFCoL_nD5DRuydNGNrER6p"/>
+</div>
+<div class="min-w-[300px] md:min-w-[450px] aspect-[3/4] bg-surface relative group overflow-hidden">
+<img alt="Gallery Image 4" class="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-105" data-alt="Interior of a high-end private lounge in Bangkok with velvet chairs, gold accents, and a tray with premium ritual items" src="https://lh3.googleusercontent.com/aida-public/AB6AXuC-uUi1xQ1GFEJy6H21aHJVZUkwgUfYsJQfUky0tv6VVwZROnnVQI8wkiDdzUS2jwXvf_-CxIaAvtPYNd8tqXdLlH-Op3xeCVHBP0l-6bSQg49aIODWsci2sko2sfud2RVZIMmO6nCcvjV0PLeUW-E6c0BWPncp0HO7PU0-m-ubpUlAw4V4C16lRDw3taI6a-BEjvwZu-5B7lW6bKPG9dMIj38uAvdD2puPfE_1dqVJoZo4xupHdEab6DKJ-iW_6e6qhhViZdNFe5A8"/>
+</div>
+</div>
+</section>
+<!-- FAQ (Accordion) -->
+<section class="py-32 bg-surface">
+<div class="max-w-3xl mx-auto px-6">
+<h3 class="font-headline italic text-5xl text-primary text-center mb-16">Ritual Inquiries</h3>
+<div class="space-y-8">
+<div class="group border-b border-outline-variant/30 pb-6">
+<button class="w-full flex justify-between items-center text-left">
+<span class="font-headline italic text-2xl text-on-surface group-hover:text-primary transition-colors">Do you offer delivery in Bangkok?</span>
+<span class="material-symbols-outlined text-primary" data-icon="add">add</span>
+</button>
+<div class="mt-4 hidden font-body text-outline-variant text-sm leading-relaxed">
+                        Yes, our white-glove concierge service operates daily from 10:00 to 22:00 across all central Bangkok districts, ensuring discretion and promptness.
+                    </div>
+</div>
+<div class="group border-b border-outline-variant/30 pb-6">
+<button class="w-full flex justify-between items-center text-left">
+<span class="font-headline italic text-2xl text-on-surface group-hover:text-primary transition-colors">How do I access the Exclusive Drops?</span>
+<span class="material-symbols-outlined text-primary" data-icon="add">add</span>
+</button>
+<div class="mt-4 hidden font-body text-outline-variant text-sm leading-relaxed">
+                        Membership is granted through our Concierge. Join our mailing list or follow our Instagram to stay informed about the next application window for our Alchemist Circle.
+                    </div>
+</div>
+<div class="group border-b border-outline-variant/30 pb-6">
+<button class="w-full flex justify-between items-center text-left">
+<span class="font-headline italic text-2xl text-on-surface group-hover:text-primary transition-colors">Is your product lab-tested?</span>
+<span class="material-symbols-outlined text-primary" data-icon="add">add</span>
+</button>
+<div class="mt-4 hidden font-body text-outline-variant text-sm leading-relaxed">
+                        Absolutely. Every batch is certified by independent laboratories in Thailand to ensure zero pesticides and accurate potency levels.
+                    </div>
+</div>
+</div>
+</div>
+</section>
+<!-- Contact & Location -->
+<section class="py-32 bg-surface-container-lowest">
+<div class="max-w-7xl mx-auto px-6 md:px-12 grid grid-cols-1 md:grid-cols-2 gap-20">
+<div class="space-y-12">
+<div>
+<span class="font-body uppercase tracking-[0.4em] text-[10px] text-tertiary">Join the Inner Circle</span>
+<h3 class="font-headline italic text-6xl text-primary mt-4">Connect with Us</h3>
+<p class="font-body text-outline-variant mt-6 leading-relaxed">Whether you are a regular or a first-time guest, our concierge is ready to assist your selection.</p>
+</div>
+<div class="flex flex-col gap-6">
+<a class="flex items-center gap-4 group" href="#">
+<span class="w-12 h-12 flex items-center justify-center border border-outline-variant text-primary group-hover:bg-primary group-hover:text-on-primary transition-all">LINE</span>
+<span class="font-label uppercase text-xs tracking-widest text-on-surface">@WEEDOCLOCK_BKK</span>
+</a>
+<a class="flex items-center gap-4 group" href="#">
+<span class="w-12 h-12 flex items-center justify-center border border-outline-variant text-primary group-hover:bg-primary group-hover:text-on-primary transition-all">IG</span>
+<span class="font-label uppercase text-xs tracking-widest text-on-surface">weedoclock.official</span>
+</a>
+</div>
+<div class="pt-8 border-t border-outline-variant/20">
+<h5 class="font-label uppercase text-[10px] tracking-[0.3em] text-outline mb-4">Location</h5>
+<p class="font-headline italic text-2xl text-on-surface">Sukhumvit, Bangkok, Thailand</p>
+<p class="font-body text-xs text-outline-variant mt-2 uppercase tracking-widest">Private Studio - By Appointment Only</p>
+</div>
+</div>
+<div class="bg-surface p-12 glow-halo">
+<form class="space-y-8">
+<div class="space-y-2">
+<label class="font-label uppercase text-[10px] tracking-widest text-outline">Name</label>
+<input class="w-full bg-transparent border-0 border-b border-outline-variant focus:border-primary focus:ring-0 text-on-surface py-2 px-0 transition-colors" type="text"/>
+</div>
+<div class="space-y-2">
+<label class="font-label uppercase text-[10px] tracking-widest text-outline">Email / Line ID</label>
+<input class="w-full bg-transparent border-0 border-b border-outline-variant focus:border-primary focus:ring-0 text-on-surface py-2 px-0 transition-colors" type="text"/>
+</div>
+<div class="space-y-2">
+<label class="font-label uppercase text-[10px] tracking-widest text-outline">Message</label>
+<textarea class="w-full bg-transparent border-0 border-b border-outline-variant focus:border-primary focus:ring-0 text-on-surface py-2 px-0 transition-colors" rows="4"></textarea>
+</div>
+<button class="w-full gold-gradient-bg text-on-primary py-5 font-label uppercase text-xs tracking-[0.2em] hover:opacity-90 transition-all" type="submit">Submit Ritual Request</button>
+</form>
+</div>
+</div>
+</section>
+<!-- Footer -->
+<footer class="w-full rounded-none border-t border-[#4d4635]/20 bg-[#0e0e0e] dark:bg-[#0e0e0e]">
+<div class="flex flex-col md:flex-row justify-between items-center px-12 py-16 w-full gap-8">
+<div class="text-lg font-headline italic text-[#f2ca50]">WEED O'CLOCK</div>
+<div class="font-['Manrope'] uppercase tracking-[0.2em] text-[10px] text-[#353534]">
+                © 2024 WEED O'CLOCK. AN ALCHEMICAL RITUAL.
+            </div>
+<div class="flex gap-8">
+<a class="font-['Manrope'] uppercase tracking-[0.2em] text-[10px] text-[#353534] hover:text-[#f2ca50] hover:tracking-[0.3em] transition-all duration-700" href="#">Privacy</a>
+<a class="font-['Manrope'] uppercase tracking-[0.2em] text-[10px] text-[#353534] hover:text-[#f2ca50] hover:tracking-[0.3em] transition-all duration-700" href="#">Terms</a>
+<a class="font-['Manrope'] uppercase tracking-[0.2em] text-[10px] text-[#353534] hover:text-[#f2ca50] hover:tracking-[0.3em] transition-all duration-700" href="#">Wholesale</a>
+<a class="font-['Manrope'] uppercase tracking-[0.2em] text-[10px] text-[#353534] hover:text-[#f2ca50] hover:tracking-[0.3em] transition-all duration-700" href="#">Contact</a>
+</div>
+</div>
+</footer>
+<script>
+    // FAQ Accordion
+    document.querySelectorAll('section button').forEach(button => {
+        button.addEventListener('click', () => {
+            const content = button.nextElementSibling;
+            if (content && content.classList.contains('font-body')) {
+                content.classList.toggle('hidden');
+                const icon = button.querySelector('.material-symbols-outlined');
+                if (icon) icon.innerText = content.classList.contains('hidden') ? 'add' : 'remove';
+            }
+        });
+    });
+
+    // Gold Dust Particles
+    const moteContainer = document.getElementById('mote-container');
+    const moteCount = window.innerWidth < 768 ? 15 : 40;
+
+    for (let i = 0; i < moteCount; i++) {
+        const mote = document.createElement('div');
+        mote.className = 'mote';
+        const x = Math.random() * 100;
+        const y = Math.random() * 100;
+        const delay = Math.random() * 10;
+        const duration = 10 + Math.random() * 10;
+        
+        mote.style.left = `${x}%`;
+        mote.style.top = `${y}%`;
+        mote.style.animation = `float-mote ${duration}s infinite linear`;
+        mote.style.animationDelay = `-${delay}s`;
+        
+        moteContainer.appendChild(mote);
+    }
+
+    // Parallax Effect
+    window.addEventListener('scroll', () => {
+        const scrolled = window.pageYOffset;
+        const layers = document.querySelectorAll('.parallax-layer');
+        
+        layers.forEach(layer => {
+            const speed = layer.getAttribute('data-speed');
+            const yPos = -(scrolled * speed);
+            layer.style.transform = `translateY(${yPos}px)`;
+        });
+    });
+</script>
+</body></html>
